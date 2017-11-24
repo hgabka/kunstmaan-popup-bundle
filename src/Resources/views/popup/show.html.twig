@@ -4,7 +4,7 @@
             <button type="button" class="modal-close" data-dismiss="modal" aria-hidden="true"></button>
             {% if popup.isImage() %}
                 <a{% if popup.url is not empty %} href="{{ popup.url }}"{% endif %}{% if popup.newWindow %} target="_blank"{% endif %}>
-                    <img id="popup-image-{{ popup.id }}" data-normal="{{ popup.media.url }}" alt="{{ popup.imageAlt }}" title="{{ popup.imageTitle }}" src="{{ asset(popup.media.url) }}" />
+                    <img id="popup-image-{{ popup.id }}" alt="{{ popup.imageAlt }}" title="{{ popup.imageTitle }}" src="{{ asset(popup.media.url) }}" />
                 </a>
             {% else %}
                 {{ popup.html | raw }}
