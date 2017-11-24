@@ -79,7 +79,7 @@ class PopupFixtures extends AbstractFixture implements OrderedFixtureInterface, 
                 ->setParent($imageFolder)
                 ->setInternalName('popup')
                 ->setName($translator->trans('hgabka_kuma_popup.fixtures.folder_name', [], null, $this->container->getParameter('defaultlocale')))
-                ->setRel('banner')
+                ->setRel('popup')
             ;
             $this->manager->persist($popupFolder);
             $this->manager->flush();
