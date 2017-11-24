@@ -2,10 +2,12 @@
 
 namespace Hgabka\KunstmaanPopupBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Hgabka\KunstmaanExtensionBundle\Traits\TimestampableEntity;
 use Hgabka\KunstmaanPopupBundle\Helper\PopupHandler;
 use Kunstmaan\AdminBundle\Entity\AbstractEntity;
 use Kunstmaan\MediaBundle\Entity\Media;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
@@ -14,7 +16,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  * @ORM\Table(name="hg_kuma_popup_popup")
  * @ORM\Entity(repositoryClass="Hgabka\KunstmaanPopupBundle\Repository\PopupRepository")
  */
-class Banner extends AbstractEntity
+class Popup extends AbstractEntity
 {
     use TimestampableEntity;
 
@@ -356,7 +358,7 @@ class Banner extends AbstractEntity
      * @Assert\Callback
      *
      * @param ExecutionContextInterface $context
-     * @param mixed $payload
+     * @param mixed                     $payload
      */
     public function validate(ExecutionContextInterface $context, $payload)
     {

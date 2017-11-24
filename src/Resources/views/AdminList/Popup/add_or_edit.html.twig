@@ -1,0 +1,6 @@
+{% extends 'KunstmaanAdminListBundle:Default:add_or_edit.html.twig' %}
+
+{% block extrajavascript %}
+  {{ parent() }}
+   <script src="{{ asset('/bundles/hgabkakunstmaanpopup/js/popup_edit.js') }}"></script>
+{% endblock %}

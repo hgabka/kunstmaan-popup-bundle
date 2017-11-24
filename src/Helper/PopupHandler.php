@@ -28,7 +28,6 @@ class PopupHandler
         $this->kumaUtils = $kumaUtils;
     }
 
-
     /**
      * @return array
      */
@@ -66,5 +65,16 @@ class PopupHandler
         }
 
         return empty($displaySorsolo) ? null : $displaySorsolo[array_rand($displaySorsolo)];
+    }
+
+    public function hasPopup()
+    {
+        $count = $this
+            ->doctrine
+            ->getRepository('HgabkaKunstmaanPopupBundle:Popup')
+            ->countPopups($this->kumaUtils->getCurrentLocale())
+        ;
+
+        return $count > 0;
     }
 }

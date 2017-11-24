@@ -9,7 +9,7 @@ use Kunstmaan\AdminBundle\Helper\Menu\TopMenuItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-class BannerMenuAdaptor implements MenuAdaptorInterface
+class PopupMenuAdaptor implements MenuAdaptorInterface
 {
     /**
      * @var AuthorizationCheckerInterface
@@ -21,7 +21,7 @@ class BannerMenuAdaptor implements MenuAdaptorInterface
 
     /**
      * @param AuthorizationCheckerInterface $authorizationChecker
-     * @param string $editorRole
+     * @param string                        $editorRole
      */
     public function __construct(AuthorizationCheckerInterface $authorizationChecker, string $editorRole)
     {

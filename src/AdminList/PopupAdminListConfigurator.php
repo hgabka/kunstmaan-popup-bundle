@@ -6,7 +6,6 @@ use Doctrine\ORM\EntityManager;
 use Hgabka\KunstmaanPopupBundle\Entity\Popup;
 use Hgabka\KunstmaanPopupBundle\Form\PopupAdminType;
 use Hgabka\KunstmaanPopupBundle\Helper\PopupHandler;
-use Hgabka\KunstmaanBannerBundle\Security\BannerVoter;
 use Kunstmaan\AdminBundle\Helper\Security\Acl\AclHelper;
 use Kunstmaan\AdminListBundle\AdminList\Configurator\AbstractDoctrineORMAdminListConfigurator;
 use Symfony\Component\Routing\RouterInterface;
@@ -101,16 +100,16 @@ class PopupAdminListConfigurator extends AbstractDoctrineORMAdminListConfigurato
         return 'Új popup';
     }
 
-/*    public function getAddTemplate()
+    public function getAddTemplate()
     {
-        return 'HgabkaKunstmaanBannerBundle:AdminList:Banner\add_or_edit.html.twig';
+        return 'HgabkaKunstmaanPopupBundle:AdminList:Popup\add_or_edit.html.twig';
     }
 
     public function getEditTemplate()
     {
-        return 'HgabkaKunstmaanBannerBundle:AdminList:Banner\add_or_edit.html.twig';
+        return 'HgabkaKunstmaanPopupBundle:AdminList:Popup\add_or_edit.html.twig';
     }
-*/
+
     /**
      * @return PopupHandler
      */

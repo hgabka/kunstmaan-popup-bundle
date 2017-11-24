@@ -1,6 +1,6 @@
 <?php
 
-namespace Hgabka\KunstmaanBannerBundle\Repository;
+namespace Hgabka\KunstmaanPopupBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

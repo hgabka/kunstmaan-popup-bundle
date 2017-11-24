@@ -20,7 +20,7 @@ services:
 
     hgabka_kunstmaan_popup.popup_twig_extension:
         class: Hgabka\KunstmaanPopupBundle\Twig\HgabkaKunstmaanPopupTwigExtension
-        arguments: ['@hgabka_kunstmaan_popup.popup_handler']
+        arguments: ['@hgabka_kunstmaan_popup.popup_handler', '@session']
         public: false
         tags:
             - { name: twig.extension }

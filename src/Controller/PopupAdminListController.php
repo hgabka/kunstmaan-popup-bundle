@@ -8,7 +8,6 @@ use Kunstmaan\AdminListBundle\Controller\AdminListController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * The admin list controller for Setting.
@@ -29,9 +28,9 @@ class PopupAdminListController extends AdminListController
             $this->configurator = new PopupAdminListConfigurator(
                 $this->getEntityManager(),
                 $this->get('security.authorization_checker'),
-                $this->get('hgabka_kunstmaan_banner.banner_handler'),
+                $this->get('hgabka_kunstmaan_popup.popup_handler'),
                 $this->get('router'),
-                $this->container->getParameter('hgabka_kunstmaan_banner.editor_role')
+                $this->container->getParameter('hgabka_kunstmaan_popup.editor_role')
             );
         }
 
@@ -41,11 +40,11 @@ class PopupAdminListController extends AdminListController
     /**
      * The index action.
      *
-     * @Route("/", name="hgabkakunstmaanbannerbundle_admin_banner")
+     * @Route("/", name="hgabkakunstmaanpopupbundle_admin_popup")
      */
     public function indexAction(Request $request)
     {
-        $this->denyAccessUnlessGranted($this->container->getParameter('hgabka_kunstmaan_banner.editor_role'));
+        $this->denyAccessUnlessGranted($this->container->getParameter('hgabka_kunstmaan_popup.editor_role'));
 
         return parent::doIndexAction($this->getAdminListConfigurator(), $request);
     }
@@ -53,7 +52,7 @@ class PopupAdminListController extends AdminListController
     /**
      * The add action.
      *
-     * @Route("/add", name="hgabkakunstmaanbannerbundle_admin_banner_add")
+     * @Route("/add", name="hgabkakunstmaanpopupbundle_admin_popup_add")
      * @Method({"GET", "POST"})
      *
      * @return array
@@ -68,7 +67,7 @@ class PopupAdminListController extends AdminListController
      *
      * @param int $id
      *
-     * @Route("/{id}", requirements={"id" = "\d+"}, name="hgabkakunstmaanbannerbundle_admin_banner_edit")
+     * @Route("/{id}", requirements={"id" = "\d+"}, name="hgabkakunstmaanpopupbundle_admin_popup_edit")
      * @Method({"GET", "POST"})
      *
      * @return array
@@ -83,7 +82,7 @@ class PopupAdminListController extends AdminListController
      *
      * @param int $id
      *
-     * @Route("/{id}", requirements={"id" = "\d+"}, name="hgabkakunstmaanbannerbundle_admin_banner_view")
+     * @Route("/{id}", requirements={"id" = "\d+"}, name="hgabkakunstmaanpopupbundle_admin_popup_view")
      * @Method({"GET"})
      *
      * @return array
@@ -98,7 +97,7 @@ class PopupAdminListController extends AdminListController
      *
      * @param int $id
      *
-     * @Route("/{id}/delete", requirements={"id" = "\d+"}, name="hgabkakunstmaanbannerbundle_admin_banner_delete")
+     * @Route("/{id}/delete", requirements={"id" = "\d+"}, name="hgabkakunstmaanpopupbundle_admin_popup_delete")
      * @Method({"GET", "POST"})
      *
      * @return array
@@ -113,7 +112,7 @@ class PopupAdminListController extends AdminListController
      *
      * @param string $_format
      *
-     * @Route("/export.{_format}", requirements={"_format" = "csv|xlsx"}, name="hgabkakunstmaanbannerbundle_admin_banner_export")
+     * @Route("/export.{_format}", requirements={"_format" = "csv|xlsx"}, name="hgabkakunstmaanpopupbundle_admin_popup_export")
      * @Method({"GET", "POST"})
      *
      * @return array
@@ -121,36 +120,5 @@ class PopupAdminListController extends AdminListController
     public function exportAction(Request $request, $_format)
     {
         return parent::doExportAction($this->getAdminListConfigurator(), $_format, $request);
-    }
-
-    /**
-     * The delete action.
-     *
-     * @param string $place
-     *
-     * @Route("/getPlaceData", name="hgabkakunstmaanbannerbundle_admin_banner_get_place_data")
-     * @Method({"POST"})
-     *
-     * @return Response
-     */
-    public function getPlaceDataAction(Request $request)
-    {
-        if (!$request->isXmlHttpRequest()) {
-            throw $this->createNotFoundException('Ajax');
-        }
-        $place = $request->get('place');
-
-        if (empty($place)) {
-            return new Response();
-        }
-        $places = $this->get('hgabka_kunstmaan_banner.banner_handler')->getPlaceConfig();
-
-        $data = $places[$place] ?? null;
-        $content = '';
-        if ($data) {
-            $content = 'Méretek:<br /><br />Szélesség: '.(empty($data['width']) ? 'tetszőleges' : $data['width'].' pixel').'<br />Magasság: '.(empty($data['height']) ? 'tetszőleges' : $data['height'].' pixel');
-        }
-
-        return new Response($content);
     }
 }
