@@ -1,0 +1,24 @@
+.modal-dialog {
+    position: relative;
+    display: table;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+    z-index: 9999;
+    max-width: 90%;
+    margin-top:15px;
+}
+
+.modal-close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 8040;
+    background-image: url(/frontend/assets/images/popup/fancy-sprite.png);
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}

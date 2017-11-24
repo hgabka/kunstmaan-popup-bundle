@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Hgabka\KunstmaanPopupBundle\Entity\Popup;
 use Hgabka\KunstmaanPopupBundle\Form\PopupAdminType;
 use Hgabka\KunstmaanPopupBundle\Helper\PopupHandler;
+use Hgabka\KunstmaanPopupBundle\Security\PopupVoter;
 use Kunstmaan\AdminBundle\Helper\Security\Acl\AclHelper;
 use Kunstmaan\AdminListBundle\AdminList\Configurator\AbstractDoctrineORMAdminListConfigurator;
 use Symfony\Component\Routing\RouterInterface;

@@ -51,7 +51,7 @@ class HgabkaKunstmaanPopupTwigExtension extends \Twig_Extension
      */
     public function showPopup(\Twig_Environment $environment)
     {
-        if ($this->session->get(self::SESSION_PARAM, false)) {
+        if (false && $this->session->get(self::SESSION_PARAM, false)) {
             return '';
         }
 

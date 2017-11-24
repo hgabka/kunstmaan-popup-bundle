@@ -66,7 +66,7 @@ class PopupAdminType extends AbstractType
                 'required' => false,
                 'attr' => ['info_text' => ''],
                 'mediatype' => 'image',
-                'foldername' => 'banner',
+                'foldername' => 'popup',
             ])
             ->add('imageAlt', TextType::class, [
                 'label' => 'hgabka_kuma_popup.labels.image_alt',

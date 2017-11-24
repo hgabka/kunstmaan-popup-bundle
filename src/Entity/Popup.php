@@ -111,7 +111,7 @@ class Popup extends AbstractEntity
     /**
      * @param Media $media
      *
-     * @return Banner
+     * @return Popup
      */
     public function setMedia($media)
     {
@@ -131,7 +131,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $locale
      *
-     * @return Banner
+     * @return Popup
      */
     public function setLocale($locale)
     {
@@ -151,7 +151,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $name
      *
-     * @return Banner
+     * @return Popup
      */
     public function setName($name)
     {
@@ -171,7 +171,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $url
      *
-     * @return Banner
+     * @return Popup
      */
     public function setUrl($url)
     {
@@ -191,7 +191,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $html
      *
-     * @return Banner
+     * @return Popup
      */
     public function setHtml($html)
     {
@@ -215,7 +215,7 @@ class Popup extends AbstractEntity
     /**
      * @param \DateTime $start
      *
-     * @return Banner
+     * @return Popup
      */
     public function setStart($start)
     {
@@ -235,7 +235,7 @@ class Popup extends AbstractEntity
     /**
      * @param \DateTime $end
      *
-     * @return Banner
+     * @return Popup
      */
     public function setEnd($end)
     {
@@ -255,7 +255,7 @@ class Popup extends AbstractEntity
     /**
      * @param int $priority
      *
-     * @return Banner
+     * @return Popup
      */
     public function setPriority($priority)
     {
@@ -275,7 +275,7 @@ class Popup extends AbstractEntity
     /**
      * @param bool $newWindow
      *
-     * @return Banner
+     * @return Popup
      */
     public function setNewWindow($newWindow)
     {
@@ -295,7 +295,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $imageAlt
      *
-     * @return Banner
+     * @return Popup
      */
     public function setImageAlt($imageAlt)
     {
@@ -315,7 +315,7 @@ class Popup extends AbstractEntity
     /**
      * @param string $imageTitle
      *
-     * @return Banner
+     * @return Popup
      */
     public function setImageTitle($imageTitle)
     {
@@ -330,7 +330,7 @@ class Popup extends AbstractEntity
             return null;
         }
 
-        return null === $this->html ? BannerHandler::TYPE_IMAGE : BannerHandler::TYPE_HTML;
+        return null === $this->html ? PopupHandler::TYPE_IMAGE : PopupHandler::TYPE_HTML;
     }
 
     public function setType($type)
