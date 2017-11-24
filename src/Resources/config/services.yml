@@ -1,0 +1,35 @@
+parameters:
+    hgabka_kunstmaan_popup.popup_handler.class: 'Hgabka\KunstmaanPopupBundle\Helper\PopupHandler'
+
+services:
+    hgabka_kunstmaan_popup.popup_handler:
+        class: '%hgabka_kunstmaan_popup.popup_handler.class%'
+        arguments: ["@doctrine", "@hgabka_kunstmaan_extension.kuma_utils"]
+
+    hgabka_kunstmaan_popup.popup_type:
+        class: Hgabka\KunstmaanPopupBundle\Form\PopupAdminType
+        arguments: ['@hgabka_kunstmaan_popup.popup_handler', "@router"]
+        tags:
+            - { name: form.type }
+
+    hgabka_kunstmaan_popup.menu.adaptor.popup:
+        class: Hgabka\KunstmaanPopupBundle\Helper\Menu\PopupMenuAdaptor
+        arguments: ['@security.authorization_checker', '']
+        tags:
+            -  { name: kunstmaan_admin.menu.adaptor }
+
+    hgabka_kunstmaan_popup.popup_twig_extension:
+        class: Hgabka\KunstmaanPopupBundle\Twig\HgabkaKunstmaanPopupTwigExtension
+        arguments: ['@hgabka_kunstmaan_popup.popup_handler']
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    hgabka_kunstmaan_popup.popup_voter:
+        class:  Hgabka\KunstmaanPopupBundle\Security\PopupVoter
+        arguments: ['@security.access.decision_manager', '']
+        tags:
+            - { name: security.voter }
+        public: false
+
+    Hgabka\KunstmaanPopupBundle\Helper\PopupHandler: "@hgabka_kunstmaan_popup.popup_handler"

@@ -1,0 +1,24 @@
+hgabka_kuma_popup:
+    labels:
+        name: Name
+        start: Starts at
+        end: Ends at
+        type: Type
+        media: Image
+        image_alt: "Image 'alt' text"
+        image_title: "Image 'title' text"
+        html: Html content
+        locale: Language
+        url: Link
+        new_window: Link opens in new window
+        priority: Priority
+    types:
+        image: Image
+        html: Html content
+    locales:
+        all: any
+    tabs:
+        general: General data
+        content: Appearance
+    fixtures:
+        folder_name: Popups

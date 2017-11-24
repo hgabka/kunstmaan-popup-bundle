@@ -1,0 +1,28 @@
+hgabka_kuma_popup:
+    labels:
+        name: Név
+        start: Megjelenés kezdete
+        end: Megjelenés vége
+        type: Típus
+        media: Kép
+        image_alt: "Kép 'alt' szöveg"
+        image_title: "Kép 'title' szöveg"
+        html: Html tartalom
+        locale: Nyelv
+        url: Link
+        new_window: A link új ablakban nyíljon meg
+        priority: Prioritás
+    types:
+        image: Kép
+        html: Html tartalom
+    locales:
+        all: minden nyelven
+    tabs:
+        general: Adatok
+        content: Megjelenés
+    errors:
+        missing_media: Kép típusú popuphoz kötelező képet megadni
+        missing_html: Html típusú popuphoz kötelező html tartalmat megadni
+        invalid_times: A megjelenés kezdetének korábbinak kell lennie a végénél
+    fixtures:
+        folder_name: Popup

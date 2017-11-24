@@ -1,0 +1,4 @@
+KunstmaanPopupBundle_routes:
+    resource: '@HgabkaKunstmaanPopupBundle/Controller/PopupAdminListController.php'
+    type:     annotation
+    prefix:   /admin/popups
