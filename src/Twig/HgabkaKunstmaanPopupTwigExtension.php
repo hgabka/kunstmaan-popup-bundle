@@ -66,7 +66,7 @@ class HgabkaKunstmaanPopupTwigExtension extends \Twig_Extension
         return $environment->render('@HgabkaKunstmaanPopup/popup/show.html.twig', ['popup' => $popup]);
     }
 
-    public function hasPopup(string $place)
+    public function hasPopup()
     {
         return $this->handler->hasPopup();
     }
